@@ -1,0 +1,16 @@
+.global _start
+.extern kernel_entry
+
+.section .text
+_start:
+    // Push the pointer to the Multiboot information structure
+    // pushq %rbx
+
+    // Push the magic value
+    // pushq %rax
+
+    movq %rax, %rdi
+    movq %rbx, %rsi
+
+    // Call kernel_entry
+    call kernel_entry

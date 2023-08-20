@@ -1,0 +1,20 @@
+config ARCH
+    string
+    default "x86_64-bios"
+
+menu "Architecture"
+    choice
+        prompt "Select architecture"
+
+        config X86_64_BIOS
+            bool "x86_64 BIOS"
+            help
+                Build for x86_64 BIOS
+
+        config X86_64_UEFI
+            bool "x86_64 UEFI"
+            help
+                Build for x86_64 UEFI
+
+    endchoice
+endmenu

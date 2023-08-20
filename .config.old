@@ -1,0 +1,11 @@
+#
+# Automatically generated file; DO NOT EDIT.
+# Configuration
+#
+CONFIG_ARCH="x86_64-bios"
+
+#
+# Architecture
+#
+# CONFIG_X86_64_BIOS is not set
+CONFIG_X86_64_UEFI=y

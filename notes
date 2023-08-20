@@ -1,0 +1,26 @@
+# Error: 04/23/2023 | 09:48
+# Status: Error
+# Building targets with type x86_64-bios require creating ramdisk with grub-mkrescue in
+# the root Makefile. This forces grub to be installed to the ramdisk and may override the
+# intent.
+
+# Error: 04/23/2023 | 09:50
+# Status: Warning
+# Building targets of type x86_64-uefi globaly still utilizes the depreciated
+# grub-mkrescue method. It is posssible to build this target with a custom ramdisk, but
+# only within its sub-directory Makefile.
+
+# Critical Error: 04/23/2023 | 10:36
+# Status: Critical Error
+# Continuity errors found. The ramdisk for both targets x86_64-bios and x86_64-uefi are
+# created utilizing the depreciated grub-mkrescue method. It is possible for x86_64-uefi
+# to create a custom ramdisk without grub installed. This is only handled within the
+# sub-directory Makefile.
+# Each ramdisk creation should occur in one of two ways:
+# 1. The ramdisk is created and populated within the sub-directory Makefile. This
+# eliminates the need for a /root/build/isofiles directory and that was only used by
+# grub-mkrescue. Each ramdisk will follow a naming scheme so the root Makefile can easily
+# locate it.
+# 2. The ramdisk is created within the root Makefile, and populated from within the
+# sub-directory Makefile. This abstracts the process by making the ramdisk creation
+# global since it will be used by any foreseeable architecture.
